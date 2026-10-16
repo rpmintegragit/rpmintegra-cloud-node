@@ -29,7 +29,8 @@ RUN chmod 600 /root/.ssh/authorized_keys && \
     sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
-RUN curl -fsSL https://antigravity-cli-auto-updater-974169037036.us-central1.run.app/install.sh | bash -s -- -d /usr/local/bin && \
+# Antigravity CLI Installation from official Google bootstrapper
+RUN curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- -d /usr/local/bin && \
     chmod +x /usr/local/bin/agy
 
 RUN mkdir -p /opt/hermes && \
